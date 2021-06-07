@@ -1,14 +1,23 @@
 import React, { useReducer } from 'react';
-import reducer, { initialState} from './reducers/';
+import reducer, { initialState } from './reducers/';
+import { addOne } from './actions/';
 
 import './App.css';
 
 import TotalDisplay from './components/TotalDisplay';
 import CalcButton from './components/CalcButton';
 
+
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
+
   console.log('currentState: ', state);
+
+  const addOneHandler = ()=>{
+    dispatch(addOne());
+    console.log("addOneHandler in App.js");
+  }
+
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -32,7 +41,7 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={1}/>
+              <CalcButton value={1} onClick={addOneHandler}/>
               <CalcButton value={2}/>
               <CalcButton value={3}/>
             </div>
