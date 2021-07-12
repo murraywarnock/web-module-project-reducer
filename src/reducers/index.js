@@ -3,19 +3,21 @@ import { ADD_ONE, APPLY_NUMBER, CHANGE_OPERATION, CLEAR_DISPLAY, APPLY_MEMORY, R
 export const initialState = {
     total: 0,
     operation: "",
-    memory: 0
+    memory: 0,
 }
 
 const calculateResult = (num1, num2, operation) => {
     switch(operation) {
         case(""):
-        return num1 + num2;
+        return num2;
         case("+"):
             return +num1 + +num2;
         case("*"):
             return num1 * num2;
         case("-"):
             return num1 - num2;
+        default:
+            return operation;
     }
 }
 
@@ -44,17 +46,18 @@ const reducer = (state, action) => {
                 total: 0,
                 operation: ""
             });
-            case(APPLY_MEMORY):
+        case(APPLY_MEMORY):
             return ({
                 ...state,
-                memory: state.total
+                memory: state.total,
+                total: 0
             });
-            case(RESTORE_MEMORY):
+        case(RESTORE_MEMORY):
             return ({
                 ...state,
                 total: state.memory
             });
-            case(CLEAR_MEMORY):
+        case(CLEAR_MEMORY):
             return ({
                 ...state,
                 memory: 0

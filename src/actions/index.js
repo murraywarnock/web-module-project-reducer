@@ -7,7 +7,6 @@ export const RESTORE_MEMORY = "RESTORE_MEMORY"
 export const CLEAR_MEMORY = "CLEAR_MEMORY"
 
 export const addOne = () => {
-    console.log("addOne in actions/index.js");
     return({type:ADD_ONE});
 }
 
@@ -20,8 +19,7 @@ export const changeOperation = (operator) => {
 }
 
 export const clearDisplay = () => {
-    console.log("clearDisplay in actions/index.js");
-    return({type:CLEAR_DISPLAY});
+   return({type:CLEAR_DISPLAY});
 }
 export const applyMemory = () => {
     return({type:APPLY_MEMORY});

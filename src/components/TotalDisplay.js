@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const TotalDisplay = (props) => {
     const { value } = props;
     
